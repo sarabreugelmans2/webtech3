@@ -73,8 +73,13 @@ class App {
 let app = new App();
 let note1= new Note("Eerste nota");
 //note1.add();
-let newNote = document.createElement('div');
+/*let newNote = document.createElement('div');
 let textNote= document.createTextNode('testje 2');
 newNote.appendChild(textNote);
 document.querySelector(".notes").appendChild(newNote);
-newNote.className="card";
+newNote.className="card";*/
+let newNote = document.querySelector('.card');
+let cln = newNote.cloneNode(true);
+
+document.querySelector(".notes").appendChild(cln);
+cln.querySelector("p").innerHTML= "test 3";

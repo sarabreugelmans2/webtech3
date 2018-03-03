@@ -8,18 +8,21 @@ class Note {
 
   createElement(title){
     let newNote = document.createElement('div');
+    let textNote= document.createTextNode('testje 2');
+    node.appendChild(textNote);
+    document.querySelector(".notes").appendChild(newNote);
 
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     return newNote;
   }
 
-  add(title){
+  add(){
     // HINT🤩
     // this function should append the note to the screen somehow
 
 
-    document.querySelector(".notes");
+
   }
 
   saveToStorage(){
@@ -70,3 +73,8 @@ class App {
 let app = new App();
 let note1= new Note("Eerste nota");
 //note1.add();
+let newNote = document.createElement('div');
+let textNote= document.createTextNode('testje 2');
+newNote.appendChild(textNote);
+document.querySelector(".notes").appendChild(newNote);
+newNote.className="card";

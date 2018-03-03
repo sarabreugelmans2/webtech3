@@ -1,12 +1,13 @@
 class Note {
   constructor(title) {
-    this.title = title;
-    // HINT🤩 this.element = this.createElement(title);
 
-    return(`${this.title}`);
+    // HINT🤩 this.element = this.createElement(title);
+    this.title= title;
+
+
   }
 
-  createElement(title){
+  createElement(){
 
 
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
@@ -14,7 +15,7 @@ class Note {
     let cln = newNote.cloneNode(true);
 
     document.querySelector(".notes").appendChild(cln);
-    cln.querySelector("p").innerHTML= "Bubble";
+    cln.querySelector("p").innerHTML= `${this.title}`;
 
     return newNote;
   }

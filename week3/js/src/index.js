@@ -3,16 +3,18 @@ class Note {
     this.title = title;
     // HINT🤩 this.element = this.createElement(title);
 
-    console.log(`${this.title}`);
+    return(`${this.title}`);
   }
 
   createElement(title){
-    let newNote = document.createElement('div');
-    let textNote= document.createTextNode('testje 2');
-    node.appendChild(textNote);
-    document.querySelector(".notes").appendChild(newNote);
+
 
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
+    let newNote = document.querySelector('.card');
+    let cln = newNote.cloneNode(true);
+
+    document.querySelector(".notes").appendChild(cln);
+    cln.querySelector("p").innerHTML= "Bubble";
 
     return newNote;
   }
@@ -72,14 +74,11 @@ class App {
 
 let app = new App();
 let note1= new Note("Eerste nota");
+ console.log(note1.title);
+ note1.createElement();
 //note1.add();
 /*let newNote = document.createElement('div');
 let textNote= document.createTextNode('testje 2');
 newNote.appendChild(textNote);
 document.querySelector(".notes").appendChild(newNote);
 newNote.className="card";*/
-let newNote = document.querySelector('.card');
-let cln = newNote.cloneNode(true);
-
-document.querySelector(".notes").appendChild(cln);
-cln.querySelector("p").innerHTML= "test 3";

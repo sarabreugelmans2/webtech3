@@ -73,10 +73,12 @@ class App {
   /*  let buttonClick= document.getElementById("btnAddNote");
     buttonClick.addEventListener("click", function(event){
     console.log("yoe"); }, false);*/
-
+    this.textAdd= document.getElementById("txtAddNote").value;
+    console.log(this.textAdd);
     this.btnAdd= document.getElementById("btnAddNote");
     this.btnAdd.addEventListener("click", function(event){
-    console.log("yoe"); }, false );
+      console.log(this.textAdd);
+    } );
 
     // pressing the enter key should also work
 

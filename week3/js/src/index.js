@@ -80,7 +80,18 @@ class App {
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
 
 
+
+
+
     // pressing the enter key should also work
+    document.addEventListener('keyup',  function(e){
+    if (e.keyCode === 13) {
+    console.log("hi");
+  }
+    else{
+
+    }});
+
 
     // this.btnAdd = ???
     // this.btnAdd.addEventListener("click", this.createNote.bind(this));
@@ -101,7 +112,7 @@ class App {
     // HINT🤩
     // note.add();
     // note.saveToStorage();
-    // this.reset();
+    //this.reset();
   }
 
   reset(){

@@ -77,7 +77,7 @@ class App {
     console.log(this.textAdd);
     this.btnAdd= document.getElementById("btnAddNote");
 
-    this.btnAdd.addEventListener("click", this.createNote);
+    this.btnAdd.addEventListener("click", this.createNote.bind(this));
 
 
     // pressing the enter key should also work
@@ -95,7 +95,8 @@ class App {
 
   createNote(e){
     // this function should create a new note by using the Note() class
-    let note= new Note(e);
+    this.textAdd= document.getElementById("txtAddNote").value;
+    let note= new Note(this.textAdd);
     note.createElement();
     // HINT🤩
     // note.add();

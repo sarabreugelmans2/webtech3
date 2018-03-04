@@ -47,7 +47,7 @@ this.title=title;
     // HINT🤩
     // this function should append the note to the screen somehow
 
-    document.querySelector('.notes').appendChild(newNote);
+  //  document.querySelector('.notes').appendChild(newNote);
   }
 
 
@@ -70,6 +70,9 @@ class App {
 
     // HINT🤩
     // clicking the button should work
+  let buttonClick= document.getElementById("btnAddNote");
+  buttonClick.addEventListener("onclick", function(event){
+    alert("hello"); }, false);
     // pressing the enter key should also work
     // this.btnAdd = ???
     // this.btnAdd.addEventListener("click", this.createNote.bind(this));
@@ -103,6 +106,10 @@ note1.createElement();
 console.log(note1.title);
 note1.add();
 
+let buttonClick= document.getElementById("btnAddNote");
+buttonClick.addEventListener("click", function(event){
+  alert("hello");
+console.log("yoe"); }, false);
 
 //note1.add();
 /*let newNote = document.createElement('div');

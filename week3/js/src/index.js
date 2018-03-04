@@ -2,31 +2,55 @@ class Note {
   constructor(title) {
 
     // HINT🤩 this.element = this.createElement(title);
-    this.title= title;
-
+    //this.title= title;
+this.title=title;
+//this.element= this.createElement('title');
+  //this.element=this.createElement("DIV");
 
   }
 
-  createElement(){
+  createElement(title){
 
+
+    let newNote = document.createElement('DIV');
+    newNote.classList.add("card");
+
+    //TEKST
+    let p = document.createElement('p');
+    let text = document.createTextNode(`${this.title} `);
+    p.appendChild(text);
+    newNote.appendChild(p);
+
+    //REMOVETEKST
+    let a = document.createElement('a');
+    let linkText = document.createTextNode(" remove");
+    a.appendChild(linkText);
+    a.href = "#";
+    a.classList.add("card-remove");
+    newNote.appendChild(a);
+
+  document.querySelector('.notes').appendChild(newNote);
 
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
-    let newNote = document.querySelector('.card');
+
+    /*let newNote = document.querySelector('.card');
     let cln = newNote.cloneNode(true);
 
     document.querySelector(".notes").appendChild(cln);
-    cln.querySelector("p").innerHTML= `${this.title}`;
+    cln.querySelector("p").innerHTML= `${this.title}`;*/
+
 
     return newNote;
-  }
+      }
 
-  add(){
+    add(){
     // HINT🤩
     // this function should append the note to the screen somehow
 
-
-
+    document.querySelector('.notes').appendChild(newNote);
   }
+
+
 
   saveToStorage(){
     // HINT🤩
@@ -75,8 +99,11 @@ class App {
 
 let app = new App();
 let note1= new Note("Eerste nota");
- console.log(note1.title);
- note1.createElement();
+note1.createElement();
+console.log(note1.title);
+note1.add();
+
+
 //note1.add();
 /*let newNote = document.createElement('div');
 let textNote= document.createTextNode('testje 2');

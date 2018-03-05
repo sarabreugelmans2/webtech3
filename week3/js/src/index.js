@@ -92,7 +92,7 @@ this.title=title;
 class App {
   constructor() {
     console.log("👊🏼 The Constructor!");
-
+    this.loadNotesFromStorage();
     // HINT🤩
     // clicking the button should work
   /*  let buttonClick= document.getElementById("btnAddNote");
@@ -126,8 +126,10 @@ console.log("Kom op");}}
 
   loadNotesFromStorage() {
 
-console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
 
+console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
+let retrieved= new Note(localStorage.getItem('note'));
+retrieved.createElement();
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
@@ -156,9 +158,7 @@ let app = new App();
 //note1.createElement();
 //console.log(note1.title);
 //note1.add();
-console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
-let retrieved= new Note(localStorage.getItem('note'));
-retrieved.createElement();
+
 
 //note1.add();
 /*let newNote = document.createElement('div');

@@ -62,9 +62,11 @@ this.title=title;
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    this.style.color = "#ff0000";
-    this.remove();
-       console.log("removebutton clicked");
+    this.classList.add("animate");
+    this.querySelector(".animate").remove();
+
+    //this.remove();
+       
 
   }
 

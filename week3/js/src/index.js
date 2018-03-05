@@ -45,9 +45,10 @@ this.title=title;
     cln.querySelector("p").innerHTML= `${this.title}`;*/
     //saveToStorage(newNote);
 
-    let title2 = JSON.stringify(this.title);
-    this.saveToStorage(title2);
-    console.log(title2);
+
+    //let title2 = this.title;
+    this.saveToStorage(this.title);
+    console.log("Hallo"+this.title);
     return newNote;
       }
 
@@ -60,13 +61,17 @@ this.title=title;
 
 
 
-  saveToStorage(t){
+  saveToStorage(note){
 
     // Store
 
     //localStorage.note=title2;
-    localStorage.note=t;
-    console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
+    var titles= [];
+    titles.push(note);
+    console.log(titles + " zitten er twee dingen in de array?")
+    localStorage.setItem(note,JSON.stringify(titles));
+    console.log("wat is t"+ note + "wat is titles "+titles);
+    console.log( "Dit is opgeslagen in saveTosto:"+localStorage.getItem(note));
     //document.querySelector(".card").innerHTML = localStorage.note;
     // HINT🤩
     // localStorage only supports strings, not arrays
@@ -126,10 +131,14 @@ console.log("Kom op");}}
 
   loadNotesFromStorage() {
 
-
-console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
-let retrieved= new Note(localStorage.getItem('note'));
-retrieved.createElement();
+    for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+      console.log( localStorage.getItem( localStorage.key( i ) ) );
+      let retrieved= new Note( JSON.parse(localStorage.getItem( localStorage.key( i ) ) ));
+      retrieved.createElement();
+    }
+/*console.log( "Dit is opgeslagen in loadnotes:"+localStorage.getItem('note'));
+let retrieved= new Note( JSON.parse(localStorage.getItem('note')));
+retrieved.createElement();*/
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice

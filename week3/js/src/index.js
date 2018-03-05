@@ -111,6 +111,7 @@ class App {
     this.btnAdd= document.getElementById("btnAddNote");
 
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
+    this.btnAdd.addEventListener("click", this.reset.bind(this.textAdd));
   //Add.addEventListener("click", this.saveToStorage.bind(this));
 
 
@@ -153,6 +154,7 @@ retrieved.createElement();*/
     this.textAdd= document.getElementById("txtAddNote").value;
     let note= new Note(this.textAdd);
     note.createElement();
+
     // HINT🤩
     // note.add();
     // note.saveToStorage();
@@ -161,6 +163,7 @@ retrieved.createElement();*/
 
   reset(){
     // this function should reset the form
+    document.getElementById("myForm").reset();
   }
 
 }

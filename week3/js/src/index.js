@@ -36,6 +36,7 @@ this.title=title;
     document.querySelector('.notes').appendChild(newNote);
     //this.newNote=newNote;
     a.addEventListener("click", this.remove.bind(newNote));
+    a.addEventListener("click", this.removeFromStorage.bind(this.title));
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     /*let newNote = document.querySelector('.card');
@@ -48,7 +49,7 @@ this.title=title;
 
     //let title2 = this.title;
     this.saveToStorage(this.title);
-    console.log("Hallo"+this.title);
+
     return newNote;
       }
 
@@ -68,10 +69,8 @@ this.title=title;
     //localStorage.note=title2;
     var titles= [];
     titles.push(note);
-    console.log(titles + " zitten er twee dingen in de array?")
     localStorage.setItem(note,JSON.stringify(titles));
-    console.log("wat is t"+ note + "wat is titles "+titles);
-    console.log( "Dit is opgeslagen in saveTosto:"+localStorage.getItem(note));
+
     //document.querySelector(".card").innerHTML = localStorage.note;
     // HINT🤩
     // localStorage only supports strings, not arrays
@@ -89,8 +88,13 @@ this.title=title;
     this.remove();
 
 
-  }
+    }
 
+  removeFromStorage(){
+    console.log(this.toString());
+
+    localStorage.removeItem(this.toString());
+  }
 
 }
 
@@ -104,7 +108,6 @@ class App {
     buttonClick.addEventListener("click", function(event){
     console.log("yoe"); }, false);*/
     this.textAdd= document.getElementById("txtAddNote").value;
-    console.log(this.textAdd);
     this.btnAdd= document.getElementById("btnAddNote");
 
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
@@ -132,7 +135,7 @@ console.log("Kom op");}}
   loadNotesFromStorage() {
 
     for ( var i = 0, len = localStorage.length; i < len; ++i ) {
-      console.log( localStorage.getItem( localStorage.key( i ) ) );
+
       let retrieved= new Note( JSON.parse(localStorage.getItem( localStorage.key( i ) ) ));
       retrieved.createElement();
     }

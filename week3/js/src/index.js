@@ -125,9 +125,12 @@ console.log("Kom op");}}
   }
 
   loadNotesFromStorage() {
+
+console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
     // HINT🤩
     // load all notes from storage here and add them to the screen
     // something like note.add() in a loop would be nice
+
   }
 
   createNote(e){
@@ -146,7 +149,7 @@ console.log("Kom op");}}
   }
 
 }
-
+console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
 let app = new App();
 //let note1= new Note("Eerste nota");
 //note1.createElement();

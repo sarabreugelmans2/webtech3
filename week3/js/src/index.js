@@ -18,6 +18,7 @@ this.title=title;
     //TEKST
     let p = document.createElement('p');
     let text = document.createTextNode(`${this.title} `);
+
     p.appendChild(text);
     newNote.appendChild(p);
 
@@ -29,9 +30,12 @@ this.title=title;
     a.classList.add("card-remove");
     newNote.appendChild(a);
 
-  document.querySelector('.notes').appendChild(newNote);
-  this.newNote=newNote;
-  a.addEventListener("click", this.remove.bind(newNote));
+
+
+
+    document.querySelector('.notes').appendChild(newNote);
+    //this.newNote=newNote;
+    a.addEventListener("click", this.remove.bind(newNote));
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     /*let newNote = document.querySelector('.card');
@@ -39,8 +43,11 @@ this.title=title;
 
     document.querySelector(".notes").appendChild(cln);
     cln.querySelector("p").innerHTML= `${this.title}`;*/
+    //saveToStorage(newNote);
 
-
+    let title2 = JSON.stringify(this.title);
+    this.saveToStorage(title2);
+    console.log(title2);
     return newNote;
       }
 
@@ -53,20 +60,29 @@ this.title=title;
 
 
 
-  saveToStorage(){
+  saveToStorage(t){
+
+    // Store
+
+    //localStorage.note=title2;
+    localStorage.note=t;
+    console.log( "Dit is opgeslagen:"+localStorage.getItem('note'));
+    //document.querySelector(".card").innerHTML = localStorage.note;
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+
   }
 
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
-    this.classList.add("animate");
-    this.querySelector(".animate").remove();
+    //this.classList.add("animate");
+    //this.addEventListener("transitionend", function(event) {
+    //this.remove();});
 
-    //this.remove();
-       
+    this.remove();
+
 
   }
 
@@ -87,7 +103,7 @@ class App {
     this.btnAdd= document.getElementById("btnAddNote");
 
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
-
+  //Add.addEventListener("click", this.saveToStorage.bind(this));
 
 
 
@@ -132,11 +148,10 @@ console.log("Kom op");}}
 }
 
 let app = new App();
-let note1= new Note("Eerste nota");
-note1.createElement();
-console.log(note1.title);
-note1.add();
-
+//let note1= new Note("Eerste nota");
+//note1.createElement();
+//console.log(note1.title);
+//note1.add();
 
 
 //note1.add();

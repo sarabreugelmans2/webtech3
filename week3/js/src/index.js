@@ -30,7 +30,8 @@ this.title=title;
     newNote.appendChild(a);
 
   document.querySelector('.notes').appendChild(newNote);
-
+  this.newNote=newNote;
+  a.addEventListener("click", this.remove.bind(newNote));
     // HINT🤩 a.addEventListener('click', this.remove.bind(newNote));
 
     /*let newNote = document.querySelector('.card');
@@ -61,7 +62,12 @@ this.title=title;
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
     // in this function, 'this' will refer to the current note element
+    this.style.color = "#ff0000";
+       console.log("removebutton clicked");
+
   }
+
+
 }
 
 class App {
@@ -84,14 +90,15 @@ class App {
 
 
     // pressing the enter key should also work
-    document.addEventListener('keyup',  function(e){
-    if (e.keyCode === 13) {
-    console.log("hi");
-  }
-    else{
 
-    }});
-
+/*
+document.addEventListener('keyup' ,(event) => {
+  const keyName = event.key || event.which;
+  if (keyName === "Enter") {
+  this.createNote.bind(this);
+console.log("Kom op");}}
+);
+*/
 
     // this.btnAdd = ???
     // this.btnAdd.addEventListener("click", this.createNote.bind(this));

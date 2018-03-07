@@ -30,10 +30,8 @@ this.title=title;
     a.classList.add("card-remove");
     newNote.appendChild(a);
 
-
-
-
-    document.querySelector('.notes').appendChild(newNote);
+    this.add(newNote);
+  //  document.querySelector('.notes').appendChild(newNote);
     //this.newNote=newNote;
     a.addEventListener("click", this.remove.bind(newNote));
     a.addEventListener("click", this.removeFromStorage.bind(this.title));
@@ -50,13 +48,14 @@ this.title=title;
     //let title2 = this.title;
     this.saveToStorage(this.title);
 
-    return newNote;
+  return newNote;
       }
 
-    add(){
+    add(n){
     // HINT🤩
     // this function should append the note to the screen somehow
-
+    console.log("hallo");
+    document.querySelector('.notes').appendChild(n);
   //  document.querySelector('.notes').appendChild(newNote);
   }
 
@@ -164,6 +163,7 @@ retrieved.createElement();*/
   reset(){
     // this function should reset the form
     document.getElementById("myForm").reset();
+    //HOIEIEIIEEIIdocument.getElementById("textAdd").style.color
   }
 
 }

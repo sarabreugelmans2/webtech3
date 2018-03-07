@@ -83,8 +83,8 @@ this.title=title;
     //this.classList.add("animate");
     //this.addEventListener("transitionend", function(event) {
     //this.remove();});
-
-    this.remove();
+this.classList.add("animate");
+setTimeout(() => this.remove(), 1000);
 
 
     }

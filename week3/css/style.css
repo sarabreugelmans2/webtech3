@@ -2,17 +2,34 @@
 .notes{align-items: center;}
 .card-remove{display:inline-block;}
 
-@keyframes example {
-    from {transform: scale(1);}
-    to {transform: scale(0.6);}
+@keyframes opac {
+    from {
+      background-color: (0,0,0,0.3);
+  }
+    to {
+    background-color: rgba(0,0,0,0);
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;}
+}
+
+@keyframes moveit {
+  from {  background-color: rgba(0,0,0,0);
+
+}
+  to {transform: translateX(-1000px);
+      background-color: rgba(0,0,0,0);
+
+}
 }
 
 /* The element to apply the animation to */
  .animate {
-    width: 100px;
-    height: 100px;
-    background-color: red;
-    animation-name: example;
-    animation-duration: 1s;
-    z-index: 10;
+   -webkit-animation-name: opac, moveit;
+    animation-name: opac, moveit;
+    animation-duration: 0.5s;
+    animation-delay: 0s, 0.25s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.08,.81,.86,.27);
+
 }

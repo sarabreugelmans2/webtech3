@@ -54,7 +54,7 @@ this.title=title;
     add(n){
     // HINT🤩
     // this function should append the note to the screen somehow
-    console.log("hallo");
+
     document.querySelector('.notes').appendChild(n);
   //  document.querySelector('.notes').appendChild(newNote);
   }
@@ -90,7 +90,7 @@ setTimeout(() => this.remove(), 1000);
     }
 
   removeFromStorage(){
-    console.log(this.toString());
+
 
     localStorage.removeItem(this.toString());
   }
@@ -110,7 +110,19 @@ class App {
     this.btnAdd= document.getElementById("btnAddNote");
 
     this.btnAdd.addEventListener("click", this.createNote.bind(this));
-    this.btnAdd.addEventListener("click", this.reset.bind(this.textAdd));
+
+  //check to see if the enter key was pressed
+/*document.addEventListener("click", function findkey(event) {
+     let key = event.keyCode;
+     if (key == 13) {
+    //if so, run the addTask function
+    console.log(Wadup);
+     return this.createNote.bind(this);
+
+  }
+    else{console.log("FOUUT");}});*/
+
+
   //Add.addEventListener("click", this.saveToStorage.bind(this));
 
 
@@ -157,13 +169,15 @@ retrieved.createElement();*/
     // HINT🤩
     // note.add();
     // note.saveToStorage();
-    //this.reset();
+    this.reset();
   }
 
   reset(){
     // this function should reset the form
-    document.getElementById("myForm").reset();
-    //HOIEIEIIEEIIdocument.getElementById("textAdd").style.color
+   document.getElementById("myForm").reset();
+
+    document.getElementById("txtAddNote").focus();
+
   }
 
 }

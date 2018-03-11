@@ -1,0 +1,78 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title  Express js
+    link(rel="stylesheet" type="text/css" href="static/css/style.css")
+  body
+    header.nav
+      .logo
+        img.logopic(src="KWEENI-ASSETS/logo.svg" alt="logo")
+      .username
+        p.Pusername  Anneke Kodeur
+      .logout
+        a.Plogout(href="#")   Logout
+      .profilepic
+        img.Ppic(src="KWEENI-ASSETS/user1.png" alt="profilepicture")
+    // CONTENT
+    .content
+      // #1
+      .title
+        h1  "Wat is express.js en waarvoor dient het?"
+      // #2
+      .subtit
+        .likes
+          .smiley
+            image.Ppic(src="https://picsum.photos/5 5" alt="Smileyface")
+              span  x20
+          .likeit
+            a(href="#")  like deze vraag
+        // #3
+        .details
+          .detailspic
+            image.Ppic(src="https://picsum.photos/2 " alt="Smileyface")
+              image.Ppic(src="https://picsum.photos/5" alt="Smileyface")
+                image.Ppic(src="https://picsum.photos/1" alt="Smileyface")
+          .time
+            p  12 minuten geleden gevraagd door
+          .detailsusername
+            p.username Anneke Kodeur
+          .detailsPpic
+            image.Ppic(src="https://picsum.photos/10" alt="profilepic")
+      // #4
+      .comments
+        .mainc
+          p
+            | Op de site staat: Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+          .userc
+            img.Ppic(src="https://picsum.photos/20" alt="profilepic")
+            p Jay Ba-kend
+        .sidec
+          p Thanks. Maar waarvoor dient dit eigenlijk? Frontend?
+          .userc
+            img.Ppic(src="https://picsum.photos/20" alt="profielfoto")
+            p.username  Anneke Kodeur
+        .sidec
+          p
+            | Nee het is puur voor de backend. Vergelijk het met PHP. In je frontend kan je nog altijd gebruik maken van jQuery ofz als je dat wil.
+          .userc
+            img.Ppic(src="https://picsum.photos/20" alt="profielfoto")
+            p  Jef Dev
+        .reactc
+          form
+            input#react(type="text" placeholder="Plaats commentaar..." name="react")
+        .mainc
+          p
+            | Expressjs is eigenlijk gewoon een soort van bibliotheek met een hele hoop functies die het makkelijker maken om apps te schrijven in nodejs. Een beetje zoals jQuery in frontend, maar dan voor je backend werk.
+          .userc
+            img.Ppic(src="https://picsum.photos/20" alt="profielfoto")
+            p Som Wan
+        .reactc
+          form
+            input#react(type="text" placeholder="Plaats commentaar..." name="react")
+      // #5
+      .react
+        img.Ppic(src="https://picsum.photos/200/300" alt="profilepic")
+        form.reactfinal
+          input#comment(type="text" placeholder="Plaats commentaar..." name="react")
+          input.submitform(type="submit" value="Reageren")

@@ -9,4 +9,4 @@ app.get('/wat-is-express-js', function(req,res){
 });
 
 app.listen(5000);
-console.log("U luistert naar poort 3000");
+console.log("U luistert naar poort 5000");

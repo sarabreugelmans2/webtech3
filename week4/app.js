@@ -8,5 +8,5 @@ app.get('/wat-is-express-js', function(req,res){
   res.render(__dirname + '/wat-is-express-js.pug');
 });
 
-app.listen(3000);
+app.listen(5000);
 console.log("U luistert naar poort 3000");

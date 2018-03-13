@@ -170,8 +170,8 @@ console.log("Kom op");}}
 
     let arrayLength = retrieved.length;
     console.log(arrayLength);
-/*for (var i = 0; i < arrayLength; i++) {
-    alert(myStringArray[i]);*/
+    for (var i = 0; i < arrayLength; i++) {
+      console.log((retrieved[i]) + " ");}
 
 /*console.log( "Dit is opgeslagen in loadnotes:"+localStorage.getItem('note'));
 let retrieved= new Note( JSON.parse(localStorage.getItem('note')));

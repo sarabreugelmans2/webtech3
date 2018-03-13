@@ -46,7 +46,7 @@ this.title=title;
 
 
     //let title2 = this.title;
-    this.saveToStorage(this.title);
+    //this.saveToStorage(this.title);
 
   return newNote;
       }
@@ -76,19 +76,15 @@ this.title=title;
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 let saveArr=[];
-let makeobj= JSON.parse(localStorage.getItem("saveArr"));
-    if (localStorage.getItem("saveArr") == null) {
-            saveArr.push(note);
-            localStorage.setItem("saveArr", JSON.stringify(saveArr));
-        }
-    else{
-      makeobj.push(note);
-      localStorage.setItem("saveArr", JSON.stringify(makeobj));
-}
 
-console.log(saveArr);
-console.log(makeobj);
-//iets mis met makeobj
+        if (localStorage.getItem("saveArr") != null){
+          let noteArr =JSON.parse(localStorage.getItem("saveArr"));
+          saveArr=noteArr;
+        }
+      saveArr.push(note);
+      localStorage.setItem("saveArr", JSON.stringify(saveArr));
+
+
   }
 
 
@@ -181,9 +177,9 @@ console.log("Kom op");}}
     let arrayLength = retrieved.length;
     for (var i = 0; i < arrayLength; i++) {
       let a = retrieved[i];
-      console.log(a);
+
       let toScreen = new Note(a);
-      console.log ("toScreen = " + toScreen);
+
       toScreen.createElement();}}
 
 
@@ -202,6 +198,7 @@ retrieved.createElement();*/
     this.textAdd= document.getElementById("txtAddNote").value;
     let note= new Note(this.textAdd);
     note.createElement();
+    note.saveToStorage(this.textAdd);
 
 
     // HINT🤩

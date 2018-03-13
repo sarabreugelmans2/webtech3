@@ -77,7 +77,7 @@ this.title=title;
     // if you want to store arrays, look at JSON.parse and JSON.stringify
 let saveArr=[];
 let makeobj= JSON.parse(localStorage.getItem("saveArr"));
-    if (localStorage.getItem("saveArr") === null) {
+    if (localStorage.getItem("saveArr") == null) {
             saveArr.push(note);
             localStorage.setItem("saveArr", JSON.stringify(saveArr));
         }
@@ -88,6 +88,7 @@ let makeobj= JSON.parse(localStorage.getItem("saveArr"));
 
 console.log(saveArr);
 console.log(makeobj);
+//iets mis met makeobj
   }
 
 
@@ -105,8 +106,11 @@ setTimeout(() => this.remove(), 1000);
 
   removeFromStorage(){
 
-
-    localStorage.removeItem(this.toString());
+    var array = JSON.parse(localStorage.getItem("saveArr"));
+    let i =array.indexOf(this);
+    let saveArr =array.splice(i, 1);
+    localStorage.setItem("saveArr"); //hier is ook nog iets mis
+  //  localStorage.removeItem(this.toString());
   }
 
 }
@@ -172,15 +176,13 @@ console.log("Kom op");}}
     //console.log(arrayLength);
 
     if (retrieved != null){
-    //for (var i = 0; i < arrayLength; i++) {
-      //this.createElement(retrieved[i]);
-      let toScreen = new Note(retrieved);
+    let arrayLength = retrieved.length;
+    for (var i = 0; i < arrayLength; i++) {
+      let toScreen = new Note(retrieved[i]);
       console.log ("toScreen = " + toScreen);
-      toScreen.createElement();}
+      toScreen.createElement();}}
 
-      else{
-        console.log("retrieved is dus null");
-      }
+
 
 /*console.log( "Dit is opgeslagen in loadnotes:"+localStorage.getItem('note'));
 let retrieved= new Note( JSON.parse(localStorage.getItem('note')));

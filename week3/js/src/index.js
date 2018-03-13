@@ -106,10 +106,12 @@ setTimeout(() => this.remove(), 1000);
 
   removeFromStorage(){
 
-    var array = JSON.parse(localStorage.getItem("saveArr"));
+    let array = JSON.parse(localStorage.getItem("saveArr"));
     let i =array.indexOf(this);
-    let saveArr =array.splice(i, 1);
-    localStorage.setItem("saveArr"); //hier is ook nog iets mis
+    array.splice(i, 1);
+    let newArr=JSON.stringify(array);
+    localStorage.setItem("saveArr", newArr );
+    //localStorage.setItem("saveArr"); //hier is ook nog iets mis
   //  localStorage.removeItem(this.toString());
   }
 
@@ -178,7 +180,9 @@ console.log("Kom op");}}
     if (retrieved != null){
     let arrayLength = retrieved.length;
     for (var i = 0; i < arrayLength; i++) {
-      let toScreen = new Note(retrieved[i]);
+      let a = retrieved[i];
+      console.log(a);
+      let toScreen = new Note(a);
       console.log ("toScreen = " + toScreen);
       toScreen.createElement();}}
 
@@ -198,6 +202,7 @@ retrieved.createElement();*/
     this.textAdd= document.getElementById("txtAddNote").value;
     let note= new Note(this.textAdd);
     note.createElement();
+
 
     // HINT🤩
     // note.add();

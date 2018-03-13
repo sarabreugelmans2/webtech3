@@ -66,16 +66,30 @@ this.title=title;
     // Store
 
     //localStorage.note=title2;
-    var titles= [];
-    titles.push(note);
-    localStorage.setItem(note,JSON.stringify(titles));
+  /*  let titles= [];
+    titles.push(note);*/
 
+        //console.log(titles);
+      //localStorage.setItem(note,JSON.stringify(titles));
     //document.querySelector(".card").innerHTML = localStorage.note;
     // HINT🤩
     // localStorage only supports strings, not arrays
     // if you want to store arrays, look at JSON.parse and JSON.stringify
+let saveArr=[];
+let makeobj= JSON.parse(localStorage.getItem("saveArr"));
+    if (localStorage.getItem("saveArr") === null) {
+            saveArr.push(note);
+            localStorage.setItem("saveArr", JSON.stringify(saveArr));
+        }
+    else{
+      makeobj.push(note);
+      localStorage.setItem("saveArr", JSON.stringify(makeobj));
+}
 
+console.log(saveArr);
+console.log(makeobj);
   }
+
 
   remove(){
     // HINT🤩 the meaning of 'this' was set by bind() in the createElement function
@@ -146,11 +160,19 @@ console.log("Kom op");}}
 
   loadNotesFromStorage() {
 
-    for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+  /*  for ( var i = 0, len = localStorage.length; i < len; ++i ) {
 
       let retrieved= new Note( JSON.parse(localStorage.getItem( localStorage.key( i ) ) ));
       retrieved.createElement();
-    }
+    }*/
+    let retrieved=JSON.parse(localStorage.getItem("saveArr"));
+    console.log("loadNotesFromStorage " + retrieved);
+
+    let arrayLength = retrieved.length;
+    console.log(arrayLength);
+/*for (var i = 0; i < arrayLength; i++) {
+    alert(myStringArray[i]);*/
+
 /*console.log( "Dit is opgeslagen in loadnotes:"+localStorage.getItem('note'));
 let retrieved= new Note( JSON.parse(localStorage.getItem('note')));
 retrieved.createElement();*/

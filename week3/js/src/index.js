@@ -168,10 +168,19 @@ console.log("Kom op");}}
     let retrieved=JSON.parse(localStorage.getItem("saveArr"));
     console.log("loadNotesFromStorage " + retrieved);
 
-    let arrayLength = retrieved.length;
-    console.log(arrayLength);
-    for (var i = 0; i < arrayLength; i++) {
-      console.log((retrieved[i]) + " ");}
+    //let arrayLength = retrieved.length;
+    //console.log(arrayLength);
+
+    if (retrieved != null){
+    //for (var i = 0; i < arrayLength; i++) {
+      //this.createElement(retrieved[i]);
+      let toScreen = new Note(retrieved);
+      console.log ("toScreen = " + toScreen);
+      toScreen.createElement();}
+
+      else{
+        console.log("retrieved is dus null");
+      }
 
 /*console.log( "Dit is opgeslagen in loadnotes:"+localStorage.getItem('note'));
 let retrieved= new Note( JSON.parse(localStorage.getItem('note')));
